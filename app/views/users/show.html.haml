@@ -1,0 +1,11 @@
+#user
+  %h2 User:
+  %p Name:
+  %p= @user.name
+  %br/
+  %p E-mail
+  %p= @user.email
+  %br/
+
+= if current_user?(@user)
+  =link_to 'Edit', edit_user_path

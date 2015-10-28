@@ -1,0 +1,14 @@
+#item
+  %h2 Item:
+  %p Name:
+  %p= @item.name
+  %br/
+  %p Price:
+  %p= @item.price
+  %br/
+  %p Description:
+  %p= @item.description
+  %br/
+
+= if current_user.admin?
+  =link_to 'Edit', edit_item_path

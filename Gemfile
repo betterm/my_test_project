@@ -14,6 +14,8 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'simple_form', '~> 3.2'
 gem 'twitter-bootstrap-rails', '~> 3.2'
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
+gem 'bcrypt', '~> 3.1.7'
+
 
 # gem 'unicorn'
 # Use Capistrano for deployment

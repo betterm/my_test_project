@@ -1,0 +1,66 @@
+
+
+ul
+{
+  list-style-type: none;
+}
+
+body {
+  background: -webkit-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* W3C */
+  text-align: center;
+
+}
+.navbar-default {
+  background: rgba(250, 250, 250, 0.5);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+  border: none;
+  border-radius: 0;
+  max-height: 30px;
+  .navbar-header {
+
+    .navbar-brand {
+      color: white;
+      font-size: 20px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: -1px;
+
+    }
+  }
+  .navbar-link {
+    color: black !important;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+a:active {
+  text-decoration: none;
+}
+.body {
+  margin-left: 100px ;
+}
+
+input{
+  max-width: 400px !important;
+  margin: 0 auto !important;
+}

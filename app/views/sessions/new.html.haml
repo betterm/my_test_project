@@ -1,0 +1,12 @@
+Sign in!
+=simple_form_for :sessions, url: sessions_path,  html: { class: 'form-horizontal '} do |f|
+  =f.input :email, label: "E-mail", input_html: {class: 'form-control'}
+  =f.input :password, label: "Password", input_html: {class: 'form-control'}
+
+  %br/
+  =f.button :submit, "Sign in" , input_html: {class: 'btn-lg'}
+
+
+New user?
+=link_to "Sign up now!", signup_path
+
