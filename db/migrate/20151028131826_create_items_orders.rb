@@ -1,8 +1,8 @@
 class CreateItemsOrders < ActiveRecord::Migration
   def change
     create_table :items_orders, id: false do |t|
-      t.integer :item_id
-      t.integer :order_id
+      t.belongs_to :item, index: true
+      t.belongs_to :order, index: true
     end
   end
 end

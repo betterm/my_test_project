@@ -24,11 +24,15 @@ module SessionsHelper
     user == current_user
   end
 
+  def check_if_admin?
+    current_user.admin?
+  end
+
   def sign_out
     current_user.update_attribute(:remember_token,
                                   User.encrypt(User.new_remember_token))
     cookies.delete(:remember_token)
-    self.current_user = nil
+
   end
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)

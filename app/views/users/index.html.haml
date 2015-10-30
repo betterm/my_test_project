@@ -1,11 +1,11 @@
 #index_users
-  - @users.each do |user|
-    %h2= link_to user.name , user
-    %h3
-      User e-mail:
-      = user.email
+  %div.center
+    - @users.each do |user|
+      %h2= link_to user.name , user
+      %h3
+        User e-mail:
+        = user.email
 
-- Date::DAYNAMES.each do |f|
-  = link_to f ,items_path
+
 
 

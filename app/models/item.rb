@@ -4,4 +4,5 @@ class Item < ActiveRecord::Base
   validates :name, length: { minimum: 2 }, uniqueness: true
   validates :description, length: {minimum: 10}
   has_and_belongs_to_many :orders
+
 end

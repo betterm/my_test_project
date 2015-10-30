@@ -12,17 +12,21 @@
         = link_to "Lunches", root_path, class: "navbar-brand"
       .nav.navbar-nav.navbar-right
         %ul.nav.navbar-nav
-          - if current_user.admin?
-            %li= link_to "Add item", new_item_path, class: "navbar navbar-link"
-            %li= link_to "Users", root_path, class: "navbar navbar-link"
+          - if current_user && current_user.admin?
+            %li= link_to "Users", users_path, class: "navbar navbar-link"
+            %li= link_to "Items", items_path, class: "navbar navbar-link"
+            %li= link_to "Orders", user_orders_path(current_user), class: "navbar navbar-link"
+        %ul.nav.navbar-nav
           - if signed_in?
-            %li= link_to "Profile", edit_user_path(current_user), class: "navbar navbar-link"
+            %li= link_to "Profile", user_path(current_user), class: "navbar navbar-link"
+            %li= link_to "Edit profile", edit_user_path(current_user), class: "navbar navbar-link"
             %li= link_to "Sign out", signout_path, method: "delete" , class: "navbar navbar-link"
           - else
             %li= link_to "Sign in", signin_path, class: "navbar navbar-link"
             %li= link_to "Sign up", signup_path, class: "navbar navbar-link"
 
 
-.container
+%div.container
 = yield
+= debug(params) if Rails.env.development?
 

@@ -1,7 +1,11 @@
-=simple_form_for @item, html: { class: 'form-horizontal '} do |f|
-  =f.input :name, label: "Name", input_html: {class: 'form-control'}
-  =f.input :price, label: "Price", input_html: {class: 'form-control'}
-  =f.input :description, label: "Desciption", input_html: {class: 'form-control'}
-
-  %br/
-  =f.button :submit, input_html: {class: 'btn-lg'}
+.span6.center
+  =simple_form_for @item, html: { class: 'form-horizontal '} do |f|
+    =f.input :name, label: "Name", input_html: {class: 'form-control'}
+    =f.input :price, label: "Price", input_html: {class: 'form-control'}
+    =f.input :description, label: "Desciption", input_html: {class: 'form-control'}
+    =f.select :category, Category: ["First course", "Main course", "Drink"]
+    =f.select :a_day_of_week, Day: ['sunday', 'monday', 'tuesdsay', 'wednesday', 'thursdsay', 'friday', 'saturday']
+    %br/
+    %br/
+    %br/
+    =f.button :submit, input_html: {class: 'btn-lg'}

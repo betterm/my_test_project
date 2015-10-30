@@ -1,0 +1,11 @@
+#order
+%div.center.colx-xs-6
+  %h2 Order #{@order.id}:
+  %h1 First course: #{@order.first_course}
+  %h1 Main course: #{@order.main_course}
+  %h1 Drink: #{@order.drink}
+  %h1 Created at: #{@order.created_at.strftime('%c')}
+  %br/
+
+  %h3= link_to 'Edit order', edit_user_order_path
+  %h3= link_to 'Delete order', user_order_path, method: :delete, data: {confirm: "Are you sure?"}

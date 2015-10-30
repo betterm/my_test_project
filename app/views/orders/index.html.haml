@@ -1,0 +1,4 @@
+%div.center
+  - @orders.each do |o|
+    %h2 Order #{link_to o.id, user_order_path(current_user, id: o.id)}#{o.created_at.strftime('%c')}
+  %h2= link_to 'New order', new_user_order_path

@@ -1,0 +1,13 @@
+.span6.center
+  =simple_form_for @order, url: user_orders_path , method: 'post',  html: { class: 'form-horizontal '} do |f|
+    First Course
+    %h3=f.select :first_course, @items1.pluck(:name)
+    Main course
+    %h3=f.select :main_course, @items2.pluck(:name)
+    Drink
+    %h3=f.select :drink,  @items3.pluck(:name)
+
+    %br/
+    %br/
+    %br/
+    =f.button :submit

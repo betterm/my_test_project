@@ -1,11 +1,29 @@
 #user
-  %h2 User:
-  %p Name:
-  %p= @user.name
-  %br/
-  %p E-mail
-  %p= @user.email
-  %br/
+  %div.center
+    %h2 User:
+    %p Name: #{@user.name}
 
-= if current_user?(@user)
-  =link_to 'Edit', edit_user_path
+    %p E-mail: #{@user.email}
+
+    Last order:#{link_to  @user.orders.last.id, user_order_path(@user, id: @user.orders.last.id) if @user.orders.last}
+
+    %div.center
+    %h2
+      %p Orders:
+    - @user.orders.each do |o|
+      = o.first_course
+      = o.main_course
+      = o.drink
+      = o.created_at.strftime('%c')
+      Order № #{link_to o.id, user_order_path(@user, id: o.id)}
+      %br/
+
+
+
+    %div.center
+    %h2
+      = link_to 'Edit user', edit_user_path
+      - if current_user.admin || current_user
+        %br/
+        %br/
+        = link_to 'All orders', user_orders_path(user_id: @user.id)
