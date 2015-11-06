@@ -1,13 +1,9 @@
-.span6.center
+.span8.center
   =simple_form_for @order, url: user_orders_path , method: 'post',  html: { class: 'form-horizontal '} do |f|
-    First Course
-    %h3=f.select :first_course, @items1.pluck(:name)
-    Main course
-    %h3=f.select :main_course, @items2.pluck(:name)
-    Drink
-    %h3=f.select :drink,  @items3.pluck(:name)
-
-    %br/
-    %br/
+    = render 'shared/error_messages' , object: f.object
+    =f.hidden_field :a_day_of_week, value: Date.today
+    %h3 First course #{f.collection_select :first_course, @items1, :id, :name_with_price, promt: true}
+    %h3 Main course #{f.collection_select :main_course, @items2, :id, :name_with_price, promt: true}
+    %h3 Drink#{f.collection_select :drink, @items3, :id, :name_with_price, promt: true}
     %br/
     =f.button :submit

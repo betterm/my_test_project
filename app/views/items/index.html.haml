@@ -1,7 +1,24 @@
 #index_items
-  %div.center
-    - if current_user.admin
+
+  %div.col-xs-12.center
+    #new_order
+    %h3=link_to "New order", new_user_order_path(current_user)
+  %div.center{class: user_id=current_user.id}
+    - if current_user.admin?
       %h3= link_to "Add item", new_item_path
-    %h2
-      - @items.each do |item|
-        %h3{class: "col-xs-4"} #{link_to item.name , item}: #{number_to_currency item.price}
+      - @orders.each do |o|
+        _________________________
+        %p Order № #{link_to o.id, user_order_path(current_user, id: o.id)}. Created at: #{o.created_at.strftime('%A %d %m')}. Total coast: $#{o.first_course.to_f + o.main_course.to_f + o.drink.to_f}
+
+    %div.col-xs-4
+      %h1 First course:
+    %div.col-xs-4
+      %h1 Main course:
+    %div.col-xs-4
+      %h1 Drink:
+    %div.col-xs-12
+      - @all_items.each do |items|
+        %div.col-xs-4.itemShow
+          - items.each do |item|
+            %h3{remote: true} #{link_to item.name , item}: #{number_to_currency item.price}
+

@@ -1,10 +1,11 @@
 #order
 %div.center.colx-xs-6
   %h2 Order #{@order.id}:
-  %h1 First course: #{@order.first_course}
-  %h1 Main course: #{@order.main_course}
-  %h1 Drink: #{@order.drink}
-  %h1 Created at: #{@order.created_at.strftime('%c')}
+  %h1 First course: #{@item1.name_with_price}
+  %h1 Main course: #{@item2.name_with_price}
+  %h1 Drink: #{@item3.name_with_price}
+  %h1 Total coast: $#{@sum}
+  %h1 Created at: #{link_to @order.created_at.strftime('%c'), items_path(weekday: @order.created_at.to_date )}
   %br/
 
   %h3= link_to 'Edit order', edit_user_order_path

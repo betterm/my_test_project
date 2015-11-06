@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-  before_filter :signed_in_user, only: [:edit, :update, :destroy]
+  before_filter :signed_in_user, only: [:edit,:show, :index, :update, :destroy]
   before_filter :correct_user_or_admin,   only: [:show]
   before_filter :admin_user,     only: [:destroy, :index]
   before_filter :signed_in_user_redirect, only: [:new, :create]
@@ -9,12 +9,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
   end
 
   def new
     @user = User.new
-
   end
 
   def create
@@ -30,7 +28,6 @@ class UsersController < ApplicationController
 
   def show
     @orders = Order.where(user_id: params[:user_id])
-
   end
 
   def edit
@@ -60,26 +57,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-  def find_user
-    @user = User.find(params[:id])
-  end
-  def correct_user_or_admin
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user) || current_user.admin?
-  end
-  def only_correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
-  end
-  def admin_user
-    redirect_to(root_path) unless current_user.admin?
-  end
-  def signed_in_user_redirect
-    if signed_in?
-      redirect_to root_path
-    end
-  end
-
 
 end

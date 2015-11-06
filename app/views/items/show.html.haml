@@ -4,8 +4,11 @@
 
   %h2 Item id#{@item.id}:
   %h3 Name:#{@item.name}
-  %h3 Price:#{@item.price}
+  %h3 Price:#{number_to_currency @item.price}
   %h3 Description:#{@item.description}
+  %h3 Created at:#{link_to @item.created_at.strftime('%c'), items_path(weekday: @item.created_at.to_date)}
+  %h3 Category:#{@item.category}
+
 
   - if current_user.admin?
     %h3=link_to 'Edit', edit_item_path

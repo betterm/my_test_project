@@ -1,15 +1,8 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :items
-  validates :first_course, :main_course, :drink, presence: true
 
-
-
-  private
-
-
-  def order_params
-  params.require(:order).permit(:user, :user_id)
+  def order_price
+    @order_price = self.first_course.price + self.main_course.price + self.drink.price
   end
-
 end

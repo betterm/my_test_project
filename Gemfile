@@ -15,6 +15,8 @@ gem 'simple_form', '~> 3.2'
 gem 'twitter-bootstrap-rails', '~> 3.2'
 gem 'paperclip', '~> 4.3', '>= 4.3.1'
 gem 'bcrypt', '~> 3.1.7'
+gem 'faker'
+
 
 
 # gem 'unicorn'
@@ -24,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+
 end
 
 group :test do
@@ -31,6 +34,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'database_cleaner', github: 'bmabey/database_cleaner'
+  gem 'rspec-its'
 end
 
 group :development do

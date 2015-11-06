@@ -3,12 +3,13 @@
 
   .span6.center
   =simple_form_for @order, url: user_order_path , method: 'patch',  html: { class: 'form-horizontal '} do |f|
+    =f.hidden_field :a_day_of_week, value: Date.today
     First Course
-    %h3=f.select :first_course, @items1.pluck(:name)
+    %h3=f.collection_select :first_course, @items1, :id, :name, {promt: "Choose a category" }
     Main course
-    %h3=f.select :main_course, @items2.pluck(:name)
+    %h3=f.collection_select :main_course, @items2, :id, :name, {promt: "Choose a category" }
     Drink
-    %h3=f.select :drink,  @items3.pluck(:name)
+    %h3=f.collection_select :drink,  @items3, :id, :name, {promt: "Choose a category" }
 
     %br/
     %br/
