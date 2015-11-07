@@ -22,7 +22,7 @@ end
 
 
   45.times do
-    name = Faker::Commerce.product_name
+    name = Faker::Lorem.word
     price = Faker::Commerce.price
     description = Faker::Lorem.sentence
     category = ['First course', 'Main course', 'Drink']
