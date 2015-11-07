@@ -6,11 +6,14 @@ $white_opaque: rgba(250, 250, 250, .3);
   box-sizing: border-box;
 }
 
-ul
-{
-  list-style-type: none;
+body {
+  background: -webkit-linear-gradient(90deg, #4CB8C4 2%, #3CD3AD 98%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #4CB8C4 10%, #3CD3AD 90%); /* W3C */
+  width: 100%;
 }
-
 
 .navbar-default {
   background: rgba(250, 250, 250, 0.5);
@@ -40,25 +43,22 @@ ul
 
 a:link {
   text-decoration: none;
-  color: #31b0d5;
+  color: #6666FF;
 }
 
 a:visited {
   text-decoration: none;
-  color: #31b0d5;
+  color: #6666FF;
 }
 
 a:hover {
   text-decoration: none;
-  color: #31b0d5;
+  color: #FFCC66;
 }
 
 a:active {
   text-decoration: none;
-  color: #31b0d5;
-}
- body {
-  width: 100%;
+  color: #6666FF;
 }
  div.container.col-xs-12 {
    text-align: center;
@@ -75,8 +75,10 @@ input {
 .center {
   text-align: center;
 }
-.col-xs-4 > h3 {
+.col-xs-4 > p {
   margin: 0 auto;
+  text-align: left;
+  font-size: 20px;
 }
 .debug_dump {
   clear: both;
@@ -100,3 +102,22 @@ select {
   font-size: 55px !important;
   line-height: 60px !important;
 }
+.col-xs-12{
+  margin: 1em auto 0 auto;
+  background: rgba(250, 250, 250, .3);
+  border-radius: 7px;
+  -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+  box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+  padding: 1em 0;
+  h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
+  }
+  h2, h3, ul, li {
+    margin-left: 60px;
+    list-style-type: unstyled;
+  }
+}
+

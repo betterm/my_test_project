@@ -1,10 +1,11 @@
 #index_users
   %div.center
     - @users.each do |user|
-      %h2= link_to user.name , user
-      %h3
-        User e-mail:
-        = user.email
+      %div.col-xs-12
+        %h2= link_to user.name , user
+        %h3
+          User e-mail:
+          = user.email
 
 
 

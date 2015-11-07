@@ -1,24 +1,19 @@
 #index_items
+  %div.col-xs-12
+    %div.center
+      %h2= link_to 'New order', new_user_order_path(current_user)
+    %div.col-md-12
+      %div.center{class: user_id=current_user.id}
+        - if current_user.admin?
+          %h2= link_to "Add item", new_item_path
+          %ul
+          - @orders.each do |o|
+            %li Order № #{link_to o.id, user_order_path(current_user, id: o.id)}. Created at: #{o.created_at.strftime('%A %d %m')}. Total coast: $#{Item.find(o.first_course).price + Item.find(o.main_course).price + Item.find(o.drink).price}
 
-  %div.col-xs-12.center
-    #new_order
-    %h3=link_to "New order", new_user_order_path(current_user)
-  %div.center{class: user_id=current_user.id}
-    - if current_user.admin?
-      %h3= link_to "Add item", new_item_path
-      - @orders.each do |o|
-        _________________________
-        %p Order № #{link_to o.id, user_order_path(current_user, id: o.id)}. Created at: #{o.created_at.strftime('%A %d %m')}. Total coast: $#{o.first_course.to_f + o.main_course.to_f + o.drink.to_f}
-
-    %div.col-xs-4
-      %h1 First course:
-    %div.col-xs-4
-      %h1 Main course:
-    %div.col-xs-4
-      %h1 Drink:
-    %div.col-xs-12
+    %div.container
       - @all_items.each do |items|
-        %div.col-xs-4.itemShow
+        %div.col-xs-4
+          %h3= items[0].category unless items.blank?
           - items.each do |item|
-            %h3{remote: true} #{link_to item.name , item}: #{number_to_currency item.price}
+            %p #{link_to item.name , item}:#{number_to_currency item.price}
 

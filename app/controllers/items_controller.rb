@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :admin_user, only: [:new, :create, :update, :edit, :destroy]
   before_filter :signed_in_user
 
-
   def index
     if params[:weekday].blank? && current_user.admin?
       find_all_items_for_admin

@@ -1,28 +1,11 @@
 #user
-  %div.center
-    %h2 User:
-    %p Name: #{@user.name}
-
-    %p E-mail: #{@user.email}
-
-    Last order: Order№ #{link_to  @user.orders.last.id, user_order_path(@user, id: @user.orders.last.id) if @user.orders.last}
-
-    %div.center
-    %h2
-      %p Orders:
-    - @user.orders.each do |o|
-      %p _________________
-      %p Items: #{link_to o.first_course, item_path(o.first_course)}, #{link_to o.main_course, item_path(o.main_course)},  #{link_to o.drink, item_path(o.drink)}
-      %p Time: #{ o.created_at.strftime('%A %d %m')}
-      Order № #{link_to o.id, user_order_path(@user, id: o.id)}
-      %br/
-
-
-
-    %div.center
-    %h2
-      = link_to 'Edit user', edit_user_path
+  %div.col-xs-12
+    %h2 User: #{@user.name}. E-mail: #{@user.email}
+    %h3 Last order: Order№ #{link_to  @user.orders.last.id, user_order_path(@user, id: @user.orders.last.id) if @user.orders.last}
+    %div.col-xs-6
+      %ul Orders:
+      - @user.orders.each do |o|
+        %li Order № #{link_to o.id, user_order_path(@user, id: o.id)}
+    %div.col-xs-8
       - if current_user.admin || current_user
-        %br/
-        %br/
-        = link_to 'All orders', user_orders_path(user_id: @user.id)
+        %h3 #{link_to 'All orders', user_orders_path(user_id: @user.id)} | #{link_to 'Edit my profile', edit_user_path}

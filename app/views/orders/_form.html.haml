@@ -6,4 +6,4 @@
     %h3 Main course #{f.collection_select :main_course, @items2, :id, :name_with_price, promt: true}
     %h3 Drink#{f.collection_select :drink, @items3, :id, :name_with_price, promt: true}
     %br/
-    =f.button :submit
+    %h3=f.button :submit

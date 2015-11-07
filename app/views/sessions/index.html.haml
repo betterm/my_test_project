@@ -1,4 +1,4 @@
 #home
-  %div.container.col-xs-12
-    -(Date.today - 3.days..Date.today + 3.days).each do |a|
+  -(Date.today - 3.days..Date.today + 3.days).each do |a|
+    %div.container.col-xs-12
       %h1= link_to a.strftime('%A %d %B'), items_path(weekday: a)

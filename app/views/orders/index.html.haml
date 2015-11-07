@@ -1,7 +1,10 @@
-%div.center
+%div.col-xs-12
+  %div.center
+    %h4= link_to 'New order', new_user_order_path
+%div.col-xs-12
   - @orders.each do |o|
-    %h2 Order № #{link_to o.id, user_order_path(current_user, id: o.id)} Created at: #{o.created_at.strftime('%c')}
-  %h2= link_to 'New order', new_user_order_path
+    %h3 Order № #{link_to o.id, user_order_path(current_user, id: o.id)}, created at: #{o.created_at.strftime('%c')}
   - if current_user.admin? && current_user
-    -(Date.today - 15.days..Date.today + 15.days).each do |a|
-      %h1= link_to a.strftime('%A %d %B'), items_path(weekday: a)
+    -(Date.today - 7.days..Date.today + 7.days).each do |a|
+      %div.col-xs-4
+        %p= link_to a.strftime('%A %d %B'), items_path(weekday: a)

@@ -25,5 +25,4 @@ module ItemsHelper
     params[:created_at] = params[:created_at].strftime('%A')
   end
 
-
 end

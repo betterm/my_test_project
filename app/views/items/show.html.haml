@@ -1,8 +1,8 @@
 #item
-%div.center
+%div.col-xs-12
 
 
-  %h2 Item id#{@item.id}:
+  %h2 Item id #{@item.id}:
   %h3 Name:#{@item.name}
   %h3 Price:#{number_to_currency @item.price}
   %h3 Description:#{@item.description}
@@ -11,6 +11,4 @@
 
 
   - if current_user.admin?
-    %h3=link_to 'Edit', edit_item_path
-    %h3=link_to 'Delete', item_path, method: :delete, data: { confirm: "You sure" }
-    %h3=link_to 'Back to items', items_path
+    %h3 #{link_to 'Edit', edit_item_path} | #{link_to 'Delete', item_path, method: :delete, data: { confirm: "You sure" }} | #{link_to 'Back to items', items_path}
