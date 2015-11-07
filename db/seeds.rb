@@ -26,7 +26,7 @@ end
     price = Faker::Commerce.price
     description = Faker::Lorem.sentence
     category = ['First course', 'Main course', 'Drink']
-    weekday = [Date.today, Date.yesterday, Date.yesterday.yesterday, Date.tomorrow]
+    weekday = [Date.today, Date.yesterday, Date.tomorrow]
     Item.create!(name:     name,
                  price:    price,
                  description: description,
@@ -35,9 +35,6 @@ end
     )
   end
 
-
-
-#
 
 
 
