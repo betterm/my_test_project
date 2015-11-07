@@ -21,7 +21,7 @@ admin.toggle!(:admin)
 end
 
 
-  45.times do
+  150.times do
     name = Faker::Lorem.word
     price = Faker::Commerce.price
     description = Faker::Lorem.sentence
